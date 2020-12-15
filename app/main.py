@@ -9,15 +9,20 @@ app = Flask(__name__, static_url_path="")
 def hello_world():
     return render_template('base.html')
 
-from flask import render_template
-
 @app.route('/base/')
 def hello():
     return render_template('base.html')
 
-@app.route('/test/')
+@app.route('/api/wines')
 def lol():
-    return render_template('test.html')
+    import json
+    data = open('./data/wines.json','r')
+    data = json.load(data)
+    return data
+
+@app.route('/path')
+def path():
+    return os.getcwd()
 
 @app.route('/favicon.ico')
 def favicon():
