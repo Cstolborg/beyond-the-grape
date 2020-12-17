@@ -280,6 +280,6 @@ def init_regression(server):
 
         print(d) #Used for decomposition and debugging
         predictions = pipeline.predict(d)[0]
-        return 'Predicted rating {}'.format(round(float(predictions),1))
+        return 'Predicted rating {}'.format(round(float(predictions),3))
 
     return predictor_app.server
